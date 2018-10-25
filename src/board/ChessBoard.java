@@ -27,9 +27,8 @@ public class ChessBoard extends Group {
 				this.getChildren().add(s);
 
 				if (row == 0) {
-					if (col == 0) {
+					if (col == 0 || col==7) {
 						s.addPiece(new Rook(Color.BLACK));
-
 					}
 					
 					else if (col == 1) {
@@ -56,9 +55,9 @@ public class ChessBoard extends Group {
 						s.addPiece(new Knight(Color.BLACK));
 					}
 				
-					else if (col == 7) {
+					/*else if (col == 7) {
 						s.addPiece(new Rook(Color.BLACK));
-					}
+					}*/
 				}
 
 				if (row == 7) {
