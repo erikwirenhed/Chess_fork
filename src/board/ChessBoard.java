@@ -11,6 +11,9 @@ import pieces.Rook;
 
 public class ChessBoard extends Group {
 
+	int cordenateX;
+	int cordenateY;
+	
 	public ChessBoard() {
 
 		for (int row = 0; row < 8; row++) {
@@ -21,7 +24,7 @@ public class ChessBoard extends Group {
 					bg = Color.BLANCHEDALMOND;
 				}
 
-				Square s = new Square(bg);
+				Square s = new Square(bg,col,row);
 				s.setTranslateX(col * Square.SIZE);
 				s.setTranslateY(row * Square.SIZE);
 				this.getChildren().add(s);
@@ -31,11 +34,11 @@ public class ChessBoard extends Group {
 						s.addPiece(new Rook(Color.BLACK));
 					}
 					
-					else if (col == 1) {
+					else if (col == 1 || col==6) {
 						s.addPiece(new Knight(Color.BLACK));
 					}
 					
-					else if (col == 2) {
+					else if (col == 2 || col==5) {
 						s.addPiece(new Bishop(Color.BLACK));
 					}
 					
@@ -46,31 +49,20 @@ public class ChessBoard extends Group {
 					else if (col == 4) {
 						s.addPiece(new King(Color.BLACK));
 					}
-					
-					else if (col == 5) {
-						s.addPiece(new Bishop(Color.BLACK));
-					}
-					
-					else if (col == 6) {
-						s.addPiece(new Knight(Color.BLACK));
-					}
 				
-					/*else if (col == 7) {
-						s.addPiece(new Rook(Color.BLACK));
-					}*/
 				}
 
 				if (row == 7) {
-					if (col == 0) {
+					if (col == 0 || col == 7) {
 						s.addPiece(new Rook(Color.WHITE));
 
 					}
 					
-					else if (col == 1) {
+					else if (col == 1 || col==6) {
 						s.addPiece(new Knight(Color.WHITE));
 					}
 					
-					else if (col == 2) {
+					else if (col == 2 || col==5) {
 						s.addPiece(new Bishop(Color.WHITE));
 					}
 					
@@ -82,17 +74,7 @@ public class ChessBoard extends Group {
 						s.addPiece(new King(Color.WHITE));
 					}
 					
-					else if (col == 5) {
-						s.addPiece(new Bishop(Color.WHITE));
-					}
 					
-					else if (col == 6) {
-						s.addPiece(new Knight(Color.WHITE));
-					}
-				
-					else if (col == 7) {
-						s.addPiece(new Rook(Color.WHITE));
-					}
 				}
 				if (row == 1) {
 					s.addPiece(new Pawn(Color.BLACK));

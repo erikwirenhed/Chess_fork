@@ -10,13 +10,18 @@ import javafx.scene.paint.Color;
 public abstract class Piece extends Group {
 
 	private static Piece active;
-	private static Color color;
+	private int color = 1;
 	
 	
 	
 	public Piece(Color c) {
 
-		color=c;
+		if (c==Color.BLACK){
+			color=0;
+		}
+		else if(c==Color.WHITE){
+			color=1;
+		}
 		String COLOR = "WHITE";
 		if (c == Color.BLACK) {
 			COLOR = "BLACK";
@@ -42,7 +47,7 @@ public abstract class Piece extends Group {
 		active=null;
 	}
 	
-	public static Color getColor(){
+	public int getColor(){
 		return color;
 	}
 
