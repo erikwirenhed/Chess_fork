@@ -24,7 +24,7 @@ public class ChessBoard extends Group {
 					bg = Color.BLANCHEDALMOND;
 				}
 
-				Square s = new Square(bg,col,row);
+				Square s = new Square(bg);
 				s.setTranslateX(col * Square.SIZE);
 				s.setTranslateY(row * Square.SIZE);
 				this.getChildren().add(s);
@@ -32,6 +32,8 @@ public class ChessBoard extends Group {
 				if (row == 0) {
 					if (col == 0 || col==7) {
 						s.addPiece(new Rook(Color.BLACK));
+						
+						//s.addPiece(new King(Color.BLACK));  // Obs ta bort efter testning!
 					}
 					
 					else if (col == 1 || col==6) {
@@ -82,8 +84,11 @@ public class ChessBoard extends Group {
 				if (row == 6) {
 					s.addPiece(new Pawn(Color.WHITE));
 				}
-			}
+				
+			/*	if(row == 4 && col == 4){
+					s.addPiece(new King(Color.WHITE));   // Obs ta bort efter testning!
+				}	*/
+			} 
 
-		}
-	}
-}
+		}	
+	}}

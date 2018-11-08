@@ -1,9 +1,10 @@
 package pieces;
 
+import board.Square;
 import javafx.scene.paint.Color;
 
-public class Rook extends Piece implements moveable{
-	
+public class Rook extends Piece {
+
 	public Rook(Color c) {
 		super(c);
 	}
@@ -11,19 +12,43 @@ public class Rook extends Piece implements moveable{
 	@Override
 	public void move() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void showMove() {
-		// TODO Auto-generated method stub
-		
+
+		Square s = (Square) this.getParent();
+
+		for (int index = Square.all_squares.indexOf(s) + 8; index < Square.all_squares.size(); index += 8) {
+			Square.all_squares.get(index).getBackground().setFill(Color.RED);
+
+		}
+		for (int index = Square.all_squares.indexOf(s) - 8; index >= 0; index -= 8) {
+			Square.all_squares.get(index).getBackground().setFill(Color.RED);
+		}
+
+		for (int index = Square.all_squares.indexOf(s) - 1; index >= 0; index -= 1) {
+			if (index % 8 == 7) {
+				break;
+			}
+			Square.all_squares.get(index).getBackground().setFill(Color.RED);
+
+		}
+		for (int index = Square.all_squares.indexOf(s) + 1; index < Square.all_squares.size(); index += 1) {
+			if (index % 8 == 0) {
+				break;
+			}
+			Square.all_squares.get(index).getBackground().setFill(Color.RED);
+
+		}
+
 	}
 
 	@Override
 	public void hideMove() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }
