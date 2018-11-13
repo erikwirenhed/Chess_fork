@@ -13,12 +13,14 @@ public class Square extends Group {
 	private Rectangle bg;
 	private Color originalColor;
 	private Piece piece;
+	int turn = 1;
 	private static Square active;
 	public static ArrayList<Square> all_squares = new ArrayList<Square>();
 
 	public static void resetBoardColor() {
 		for (Square square : all_squares) {
 			square.getBackground().setFill(square.originalColor);
+			
 		}
 	}
 
@@ -34,9 +36,14 @@ public class Square extends Group {
 			
 			
 			
-		
 
-			if (hasPiece()) {resetBoardColor(); 
+			
+
+			
+			 if (hasPiece()){
+		
+				
+				resetBoardColor(); 
 
 				this.piece.showMove();
 			
@@ -61,9 +68,9 @@ public class Square extends Group {
 						this.makeActive();
 
 					}
-
-					 
-				}
+			}
+			 		 
+				
 			else {
 				if(bg.getFill()==Color.RED){
 				if (Piece.getActive() != null) {
@@ -74,25 +81,33 @@ public class Square extends Group {
 					Square.removeActive();
 					this.piece.move();
 					resetBoardColor();
+					
 				}
 				}
+				
+			
 				else{ // Tom ruta => Avmarkera allt
 					Piece.removeActive();
 					Square.removeActive();
 					resetBoardColor();
 				}
 			
-			}
 			
+			}
 		});
-
+		
 	}
+
 
 	public void addPiece(Piece p) {
 		this.piece = p;
 		this.getChildren().add(p);
 	}
 
+	public void removePiece(Piece p){
+		this.piece = p;
+		this.getChildren().remove(p);
+	}
 	public boolean hasPiece() {
 		return this.piece != null;
 	}
@@ -114,9 +129,6 @@ public class Square extends Group {
 
 	}
 
-	public static ArrayList getSquareList() {
-		return all_squares;
-
-	}
+	
 
 }

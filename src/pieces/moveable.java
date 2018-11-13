@@ -7,4 +7,6 @@ public interface moveable {
 	public void showMove();
 	
 	public void hideMove();
+	
+//	public int getColorOfPiece();
 }

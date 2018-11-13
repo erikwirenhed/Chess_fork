@@ -22,15 +22,26 @@ public class Queen extends Piece implements moveable {
 			if (index % 8 == 7) {
 				break;
 			}
+			if(Square.all_squares.get(index).hasPiece()){
+				break;
+			}
+			else{
 			Square.all_squares.get(index).getBackground().setFill(Color.RED);
-			
+
+			}			
 
 		}
 		for (int index = Square.all_squares.indexOf(s)+9; index < Square.all_squares.size(); index += 9) {
 			if (index % 8 == 0) {
 				break;
 			}
+			if(Square.all_squares.get(index).hasPiece()){
+				break;
+			}
+			else{
 			Square.all_squares.get(index).getBackground().setFill(Color.RED);
+
+			}
 
 
 		}
@@ -38,7 +49,13 @@ public class Queen extends Piece implements moveable {
 			if (index % 8 == 0) {
 				break;
 			}			
+			if(Square.all_squares.get(index).hasPiece()){
+				break;
+			}
+			else{
 			Square.all_squares.get(index).getBackground().setFill(Color.RED);
+
+			}
 
 
 		}
@@ -46,33 +63,60 @@ public class Queen extends Piece implements moveable {
 			if (index % 8 == 7) {
 				break;
 			}
+			if(Square.all_squares.get(index).hasPiece()){
+				break;
+			}
+			else{
 			Square.all_squares.get(index).getBackground().setFill(Color.RED);
+
+			}
 			
 
 		}
 		
 
 		for (int index = Square.all_squares.indexOf(s) + 8; index < Square.all_squares.size(); index += 8) {
+			if(Square.all_squares.get(index).hasPiece()){
+				break;
+			}
+			else{
 			Square.all_squares.get(index).getBackground().setFill(Color.RED);
+
+			}
 
 		}
 		for (int index = Square.all_squares.indexOf(s) - 8; index >= 0; index -= 8) {
+			if(Square.all_squares.get(index).hasPiece()){
+				break;
+			}
+			else{
 			Square.all_squares.get(index).getBackground().setFill(Color.RED);
-		}
+
+			}		}
 
 		for (int index = Square.all_squares.indexOf(s) - 1; index >= 0; index -= 1) {
 			if (index % 8 == 7) {
 				break;
 			}
+			if(Square.all_squares.get(index).hasPiece()){
+				break;
+			}
+			else{
 			Square.all_squares.get(index).getBackground().setFill(Color.RED);
 
+			}
 		}
 		for (int index = Square.all_squares.indexOf(s) + 1; index < Square.all_squares.size(); index += 1) {
 			if (index % 8 == 0) {
 				break;
 			}
+			if(Square.all_squares.get(index).hasPiece()){
+				break;
+			}
+			else{
 			Square.all_squares.get(index).getBackground().setFill(Color.RED);
 
+			}
 		}
 	}
 

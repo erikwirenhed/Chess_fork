@@ -21,26 +21,46 @@ public class Rook extends Piece {
 		Square s = (Square) this.getParent();
 
 		for (int index = Square.all_squares.indexOf(s) + 8; index < Square.all_squares.size(); index += 8) {
+			if(Square.all_squares.get(index).hasPiece()){
+				break;
+			}
+			else{
 			Square.all_squares.get(index).getBackground().setFill(Color.RED);
 
+			}
 		}
 		for (int index = Square.all_squares.indexOf(s) - 8; index >= 0; index -= 8) {
+			if(Square.all_squares.get(index).hasPiece()){
+				break;
+			}
+			else{
 			Square.all_squares.get(index).getBackground().setFill(Color.RED);
-		}
+
+			}		}
 
 		for (int index = Square.all_squares.indexOf(s) - 1; index >= 0; index -= 1) {
 			if (index % 8 == 7) {
 				break;
 			}
+			if(Square.all_squares.get(index).hasPiece()){
+				break;
+			}
+			else{
 			Square.all_squares.get(index).getBackground().setFill(Color.RED);
 
+			}
 		}
 		for (int index = Square.all_squares.indexOf(s) + 1; index < Square.all_squares.size(); index += 1) {
 			if (index % 8 == 0) {
 				break;
 			}
+			if(Square.all_squares.get(index).hasPiece()){
+				break;
+			}
+			else{
 			Square.all_squares.get(index).getBackground().setFill(Color.RED);
 
+			}
 		}
 
 	}

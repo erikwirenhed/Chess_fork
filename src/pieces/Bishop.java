@@ -21,26 +21,46 @@ public class Bishop extends Piece {
 		Square s = (Square) this.getParent();
 		
 		for (int index = Square.all_squares.indexOf(s)+7; index < Square.all_squares.size(); index += 7) {
-			if (index % 8 == 7) {
+			
+					if (index % 8 == 7) {
 				break;
 			}
-			Square.all_squares.get(index).getBackground().setFill(Color.RED);
-			
+					if(Square.all_squares.get(index).hasPiece()){
+						break;
+					}
+					else{
+					Square.all_squares.get(index).getBackground().setFill(Color.RED);
+
+					}
+		
 
 		}
 		for (int index = Square.all_squares.indexOf(s)+9; index < Square.all_squares.size(); index += 9) {
 			if (index % 8 == 0) {
 				break;
 			}
+			if(Square.all_squares.get(index).hasPiece()){
+				break;
+			}
+			else{
 			Square.all_squares.get(index).getBackground().setFill(Color.RED);
+
+			}
 
 
 		}
 		for (int index = Square.all_squares.indexOf(s)-7; index >= 0; index -= 7) {
 			if (index % 8 == 0) {
 				break;
-			}			
+			}
+			if(Square.all_squares.get(index).hasPiece()){
+				break;
+			}
+			else{
 			Square.all_squares.get(index).getBackground().setFill(Color.RED);
+
+			}
+			
 
 
 		}
@@ -48,7 +68,13 @@ public class Bishop extends Piece {
 			if (index % 8 == 7) {
 				break;
 			}
+			if(Square.all_squares.get(index).hasPiece()){
+				break;
+			}
+			else{
 			Square.all_squares.get(index).getBackground().setFill(Color.RED);
+
+			}
 			
 
 		}

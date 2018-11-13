@@ -11,9 +11,9 @@ import pieces.Rook;
 
 public class ChessBoard extends Group {
 
-	int cordenateX;
-	int cordenateY;
 	
+	public boolean c = true;
+
 	public ChessBoard() {
 
 		for (int row = 0; row < 8; row++) {
@@ -56,7 +56,7 @@ public class ChessBoard extends Group {
 
 				if (row == 7) {
 					if (col == 0 || col == 7) {
-						s.addPiece(new Rook(Color.WHITE));
+					s.addPiece(new Rook(Color.WHITE));
 
 					}
 					
@@ -91,4 +91,7 @@ public class ChessBoard extends Group {
 			} 
 
 		}	
-	}}
+	}
+
+	
+}
