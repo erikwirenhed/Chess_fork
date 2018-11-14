@@ -8,5 +8,5 @@ public interface moveable {
 	
 	public void hideMove();
 	
-//	public int getColorOfPiece();
+	public int getColorOfPiece();
 }

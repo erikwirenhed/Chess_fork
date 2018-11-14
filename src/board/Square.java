@@ -16,7 +16,9 @@ public class Square extends Group {
 	int turn = 1;
 	private static Square active;
 	public static ArrayList<Square> all_squares = new ArrayList<Square>();
-
+	public static ArrayList<Piece>takenPiece = new ArrayList<Piece>();
+	
+	
 	public static void resetBoardColor() {
 		for (Square square : all_squares) {
 			square.getBackground().setFill(square.originalColor);
@@ -40,7 +42,7 @@ public class Square extends Group {
 			
 
 			
-			 if (hasPiece()){
+			 if (hasPiece()&& (Piece.getActive()== null)){
 		
 				
 				resetBoardColor(); 
@@ -69,8 +71,22 @@ public class Square extends Group {
 
 					}
 			}
-			 		 
-				
+			 else if(Piece.getActive() == this.piece){
+					Piece.removeActive();
+				//	active.getBackground().setFill(active.originalColor);
+					Square.removeActive();
+					resetBoardColor();
+				}	 
+			 else if(hasPiece() && Piece.getActive() != null && bg.getFill()==Color.RED){
+				 	removePiece(this.piece);
+				 	addPiece(Piece.getActive());
+					Piece.removeActive();
+					Square.getActive().piece = null;
+					active.getBackground().setFill(active.originalColor);
+					Square.removeActive();
+					this.piece.move();
+					resetBoardColor();
+			 }
 			else {
 				if(bg.getFill()==Color.RED){
 				if (Piece.getActive() != null) {
@@ -129,6 +145,8 @@ public class Square extends Group {
 
 	}
 
-	
+	public void getColor(){
+		
+	}
 
 }

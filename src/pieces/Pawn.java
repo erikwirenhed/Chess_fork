@@ -40,13 +40,21 @@ public class Pawn extends Piece implements moveable {
 			} else if (this.getColor() == 0) {
 				for (int index = Square.all_squares.indexOf(s) + 8; index < Square.all_squares.size(); index += 65) {
 					for (int index1 = Square.all_squares.indexOf(s) + 16; index1 < Square.all_squares.size(); index1 += 65) {
-						if(!(Square.all_squares.get(index1).hasPiece())){
+						if(!(Square.all_squares.get(index1).hasPiece())&&!( Square.all_squares.get(index).hasPiece())){
 							Square.all_squares.get(index1).getBackground().setFill(Color.RED);
 							Square.all_squares.get(index).getBackground().setFill(Color.RED);
 						}
-						else if(!(Square.all_squares.get(index).hasPiece())){
+						else if(Square.all_squares.get(index).hasPiece() && ){
 							Square.all_squares.get(index).getBackground().setFill(Color.RED);
 						}
+						
+						else if(Square.all_squares.get(index1).hasPiece() && this.getColor()==1){
+							Square.all_squares.get(index1).getBackground().setFill(Color.RED);
+							Square.all_squares.get(index).getBackground().setFill(Color.RED);
+						}
+					/*	else if(!(Square.all_squares.get(index).hasPiece())){
+							Square.all_squares.get(index).getBackground().setFill(Color.RED);
+						}*/
 						
 						
 						
@@ -84,10 +92,10 @@ public class Pawn extends Piece implements moveable {
 
 	}
 
-/*	@Override
+	@Override
 	public int getColorOfPiece() {
 		// TODO Auto-generated method stub
 		return color;
 	}
-*/
+
 }
