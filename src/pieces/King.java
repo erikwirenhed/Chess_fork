@@ -23,12 +23,16 @@ public class King extends Piece implements moveable {
 			if (index % 8 == 7) {
 				break;
 			}
-			if(Square.all_squares.get(index).hasPiece()){
+			if(Square.all_squares.get(index).hasPiece()&& !(this.getColor() != Square.all_squares.get(index).getPieceColor())){
+				break;
+			}
+			else if(Square.all_squares.get(index).hasPiece()&& (this.getColor() != Square.all_squares.get(index).getPieceColor())){
+				Square.all_squares.get(index).getBackground().setFill(Color.GREEN);
 				break;
 			}
 			else{
+			
 			Square.all_squares.get(index).getBackground().setFill(Color.RED);
-
 			}
 
 		}
@@ -38,12 +42,16 @@ public class King extends Piece implements moveable {
 			if (index % 8 == 0) {
 				break;
 			}
-			if(Square.all_squares.get(index).hasPiece()){
+			if(Square.all_squares.get(index).hasPiece()&& !(this.getColor() != Square.all_squares.get(index).getPieceColor())){
+				break;
+			}
+			else if(Square.all_squares.get(index).hasPiece()&& (this.getColor() != Square.all_squares.get(index).getPieceColor())){
+				Square.all_squares.get(index).getBackground().setFill(Color.GREEN);
 				break;
 			}
 			else{
+			
 			Square.all_squares.get(index).getBackground().setFill(Color.RED);
-
 			}
 
 		}
@@ -52,12 +60,16 @@ public class King extends Piece implements moveable {
 			if (index % 8 == 0) {
 				break;
 			}
-			if(Square.all_squares.get(index).hasPiece()){
+			if(Square.all_squares.get(index).hasPiece()&& !(this.getColor() != Square.all_squares.get(index).getPieceColor())){
+				break;
+			}
+			else if(Square.all_squares.get(index).hasPiece()&& (this.getColor() != Square.all_squares.get(index).getPieceColor())){
+				Square.all_squares.get(index).getBackground().setFill(Color.GREEN);
 				break;
 			}
 			else{
+			
 			Square.all_squares.get(index).getBackground().setFill(Color.RED);
-
 			}
 
 		}
@@ -66,35 +78,47 @@ public class King extends Piece implements moveable {
 			if (index % 8 == 7) {
 				break;
 			}
-			if(Square.all_squares.get(index).hasPiece()){
+			if(Square.all_squares.get(index).hasPiece()&& !(this.getColor() != Square.all_squares.get(index).getPieceColor())){
+				break;
+			}
+			else if(Square.all_squares.get(index).hasPiece()&& (this.getColor() != Square.all_squares.get(index).getPieceColor())){
+				Square.all_squares.get(index).getBackground().setFill(Color.GREEN);
 				break;
 			}
 			else{
+			
 			Square.all_squares.get(index).getBackground().setFill(Color.RED);
-
 			}
 
 		}
 
 		// rakt ner.
 		for (int index = Square.all_squares.indexOf(s) + 8; index < Square.all_squares.size(); index += 65) {
-			if(Square.all_squares.get(index).hasPiece()){
+			if(Square.all_squares.get(index).hasPiece()&& !(this.getColor() != Square.all_squares.get(index).getPieceColor())){
+				break;
+			}
+			else if(Square.all_squares.get(index).hasPiece()&& (this.getColor() != Square.all_squares.get(index).getPieceColor())){
+				Square.all_squares.get(index).getBackground().setFill(Color.GREEN);
 				break;
 			}
 			else{
+			
 			Square.all_squares.get(index).getBackground().setFill(Color.RED);
-
 			}
 
 		}
 		// rakt uppåt.
 		for (int index = Square.all_squares.indexOf(s) - 8; index >= 0; index -= 65) {
-			if(Square.all_squares.get(index).hasPiece()){
+			if(Square.all_squares.get(index).hasPiece()&& !(this.getColor() != Square.all_squares.get(index).getPieceColor())){
+				break;
+			}
+			else if(Square.all_squares.get(index).hasPiece()&& (this.getColor() != Square.all_squares.get(index).getPieceColor())){
+				Square.all_squares.get(index).getBackground().setFill(Color.GREEN);
 				break;
 			}
 			else{
+			
 			Square.all_squares.get(index).getBackground().setFill(Color.RED);
-
 			}
 		}
 
@@ -103,13 +127,18 @@ public class King extends Piece implements moveable {
 			if (index % 8 == 7) {
 				break;
 			}
-			if(Square.all_squares.get(index).hasPiece()){
+			if(Square.all_squares.get(index).hasPiece()&& !(this.getColor() != Square.all_squares.get(index).getPieceColor())){
+				break;
+			}
+			else if(Square.all_squares.get(index).hasPiece()&& (this.getColor() != Square.all_squares.get(index).getPieceColor())){
+				Square.all_squares.get(index).getBackground().setFill(Color.GREEN);
 				break;
 			}
 			else{
+			
 			Square.all_squares.get(index).getBackground().setFill(Color.RED);
-
 			}
+			
 
 		} 	
 		// rakt höger.
@@ -117,12 +146,16 @@ public class King extends Piece implements moveable {
 			if (index % 8 == 0) {
 				break;
 			}
-			if(Square.all_squares.get(index).hasPiece()){
+			if(Square.all_squares.get(index).hasPiece()&& !(this.getColor() != Square.all_squares.get(index).getPieceColor())){
+				break;
+			}
+			else if(Square.all_squares.get(index).hasPiece()&& (this.getColor() != Square.all_squares.get(index).getPieceColor())){
+				Square.all_squares.get(index).getBackground().setFill(Color.GREEN);
 				break;
 			}
 			else{
+			
 			Square.all_squares.get(index).getBackground().setFill(Color.RED);
-
 			}
 
 		}   	
