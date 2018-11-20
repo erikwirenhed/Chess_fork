@@ -29,7 +29,7 @@ public class ChessBoard extends Group {
 				s.setTranslateY(row * Square.SIZE);
 				this.getChildren().add(s);
 
-				if (row == 0) {
+					if (row == 0) {
 					if (col == 0 || col==7) {
 						s.addPiece(new Rook(Color.BLACK));
 						
@@ -84,10 +84,10 @@ public class ChessBoard extends Group {
 				if (row == 6) {
 					s.addPiece(new Pawn(Color.WHITE));
 				}
-				
-			/*	if(row == 4 && col == 4){
-					s.addPiece(new King(Color.WHITE));   // Obs ta bort efter testning!
-				}	*/
+			
+		/*	if(row == 4 && col == 4){
+					s.addPiece(new Knight(Color.WHITE));   // Obs ta bort efter testning!
+				}		*/
 			} 
 
 		}	

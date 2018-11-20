@@ -10,18 +10,13 @@ import javafx.scene.paint.Color;
 public abstract class Piece extends Group implements moveable {
 
 	private static Piece active;
-	private int color = 1;
+	private Color color ;
 	
 	
 	
 	public Piece(Color c) {
-
-		if (c==Color.BLACK){
-			color=0;
-		}
-		else if(c==Color.WHITE){
-			color=1;
-		}
+		this.color = c;
+		
 		String COLOR = "WHITE";
 		if (c == Color.BLACK) {
 			COLOR = "BLACK";
@@ -47,7 +42,7 @@ public abstract class Piece extends Group implements moveable {
 		active=null;
 	}
 	
-	public int getColor(){
+	public Color getColor(){
 		return color;
 	}
 

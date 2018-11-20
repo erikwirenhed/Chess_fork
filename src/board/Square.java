@@ -56,20 +56,20 @@ public class Square extends Group {
 					 * this.getBackground().setFill(originalColor); }
 					 */
 
-					if(Piece.getActive() == this.piece){
+				/*	if(Piece.getActive() == this.piece){
 						Piece.removeActive();
 					//	active.getBackground().setFill(active.originalColor);
 						Square.removeActive();
 						resetBoardColor();
-					}
-					else {
+					}*/
+					
 						
 						this.getBackground().setFill(Color.RED);
 						piece.makeActive();
 
 						this.makeActive();
 
-					}
+					
 			}
 			 else if(Piece.getActive() == this.piece){
 					Piece.removeActive();
@@ -77,7 +77,7 @@ public class Square extends Group {
 					Square.removeActive();
 					resetBoardColor();
 				}	 
-			 else if(hasPiece() && Piece.getActive() != null && bg.getFill()==Color.RED){
+			 else if(hasPiece() && Piece.getActive() != null && bg.getFill()==Color.GREEN){
 				 	removePiece(this.piece);
 				 	addPiece(Piece.getActive());
 					Piece.removeActive();
@@ -147,6 +147,10 @@ public class Square extends Group {
 
 	public void getColor(){
 		
+	}
+
+	public Color getPieceColor() {
+		return this.piece.getColor();
 	}
 
 }
