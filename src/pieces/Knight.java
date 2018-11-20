@@ -25,57 +25,103 @@ public class Knight extends Piece implements moveable {
 		// UP
 		if(!(index%8==7)){
 		if (!(index - 16 + 1 < 0))
-			if(!(Square.all_squares.get(index - 16 + 1).hasPiece())){
-				Square.all_squares.get(index - 16 + 1).getBackground().setFill(Color.RED);
-			}}
+			
+			 if(Square.all_squares.get(index- 16 + 1).hasPiece()&& (this.getColor() != Square.all_squares.get(index- 16 + 1).getPieceColor())){
+				Square.all_squares.get(index- 16 + 1).getBackground().setFill(Color.GREEN);
+				
+			}
+			 else if(!(Square.all_squares.get(index- 16 + 1).hasPiece()&& !(this.getColor() != Square.all_squares.get(index- 16 + 1).getPieceColor()))){
+			
+			Square.all_squares.get(index- 16 + 1).getBackground().setFill(Color.RED);
+			}
+			}
 		
 		if(!(index%8==0)){
 		if (!(index - 16 - 1 < 0))
-			if(!(Square.all_squares.get(index - 16 - 1).hasPiece())){
-				Square.all_squares.get(index - 16 - 1).getBackground().setFill(Color.RED);
+			if(Square.all_squares.get(index- 16 - 1).hasPiece()&& (this.getColor() != Square.all_squares.get(index- 16 - 1).getPieceColor())){
+				Square.all_squares.get(index- 16 - 1).getBackground().setFill(Color.GREEN);
+				
 			}
-		
-
-		}
-		
+			else if(!(Square.all_squares.get(index- 16 - 1).hasPiece()&& !(this.getColor() != Square.all_squares.get(index- 16 - 1).getPieceColor()))){
+			
+			Square.all_squares.get(index- 16 - 1).getBackground().setFill(Color.RED);
+			}
+			}
 
 		// DOWN
 	if(!(index%8==7)){
 		if (!(index + 16 + 1 > 63))
-			if(!(Square.all_squares.get(index + 16 + 1).hasPiece())){
-				Square.all_squares.get(index + 16 + 1).getBackground().setFill(Color.RED);
-			}}
+			if(Square.all_squares.get(index+ 16 + 1).hasPiece()&& (this.getColor() != Square.all_squares.get(index+ 16 + 1).getPieceColor())){
+				Square.all_squares.get(index+16 + 1).getBackground().setFill(Color.GREEN);
+				
+			}
+			else if(!(Square.all_squares.get(index+ 16 + 1).hasPiece()&& !(this.getColor() != Square.all_squares.get(index+ 16 + 1).getPieceColor()))){
+			
+			Square.all_squares.get(index+16 + 1).getBackground().setFill(Color.RED);
+			}
+			}
+	
 	if(!(index%8==0)){
 		if (!(index + 16 - 1 > 63))
-			if(!(Square.all_squares.get(index + 16 - 1).hasPiece())){
-				Square.all_squares.get(index + 16 - 1).getBackground().setFill(Color.RED);
+			if(Square.all_squares.get(index+ 16 - 1).hasPiece()&& (this.getColor() != Square.all_squares.get(index+ 16 - 1).getPieceColor())){
+				Square.all_squares.get(index+ 16 - 1).getBackground().setFill(Color.GREEN);
+				
 			}
-	}
+			else if(!(Square.all_squares.get(index+ 16 - 1).hasPiece()&& !(this.getColor() != Square.all_squares.get(index+ 16 - 1).getPieceColor()))){
+			
+			Square.all_squares.get(index+ 16 - 1).getBackground().setFill(Color.RED);
+			}
+			
+			}
+	
 		// LEFT
 		if(!(index%8==0 || index%8==1)){
 		if (!(index - 2 - 8 < 0))
-			if(!(Square.all_squares.get(index - 2 - 8).hasPiece())){
-				Square.all_squares.get(index - 2 - 8).getBackground().setFill(Color.RED);
+			if(Square.all_squares.get(index- 2 - 8).hasPiece()&& (this.getColor() != Square.all_squares.get(index- 2 - 8).getPieceColor())){
+				Square.all_squares.get(index- 2 - 8).getBackground().setFill(Color.GREEN);
+				
 			}
-		
+			else if(!(Square.all_squares.get(index- 2 - 8).hasPiece()&& !(this.getColor() != Square.all_squares.get(index- 2 - 8).getPieceColor()))){
+			
+			Square.all_squares.get(index- 2 - 8).getBackground().setFill(Color.RED);
+			}
 		
 		if (!(index - 2 + 8 > 63))
-			if(!(Square.all_squares.get(index - 2 + 8).hasPiece())){
-				Square.all_squares.get(index - 2 + 8).getBackground().setFill(Color.RED);
+			if(Square.all_squares.get(index - 2 + 8).hasPiece()&& (this.getColor() != Square.all_squares.get(index- 2 + 8).getPieceColor())){
+				Square.all_squares.get(index - 2 + 8).getBackground().setFill(Color.GREEN);
+				
 			}
-		}
+			else if(!(Square.all_squares.get(index - 2 + 8).hasPiece()&& !(this.getColor() != Square.all_squares.get(index - 2 + 8).getPieceColor()))){
+			
+			Square.all_squares.get(index- 2 + 8).getBackground().setFill(Color.RED);
+			}
+		}	
+		
 		// RIGHT
 		if(!(index%8==6 || index%8==7)){
 		if (!(index + 2 - 8 < 0))
-			if(!(Square.all_squares.get(index + 2 - 8).hasPiece())){
-				Square.all_squares.get(index + 2 - 8).getBackground().setFill(Color.RED);
+			if(Square.all_squares.get(index+ 2 - 8).hasPiece()&& (this.getColor() != Square.all_squares.get(index+ 2 - 8).getPieceColor())){
+				Square.all_squares.get(index+ 2 - 8).getBackground().setFill(Color.GREEN);
+				
 			}
-		if (!(index + 2 + 8 > 63))
-			if(!(Square.all_squares.get(index + 2 + 8).hasPiece())){
-				Square.all_squares.get(index + 2 + 8).getBackground().setFill(Color.RED);
+			else if(!(Square.all_squares.get(index+ 2 - 8).hasPiece()&& !(this.getColor() != Square.all_squares.get(index+ 2 - 8).getPieceColor()))){
+			
+			Square.all_squares.get(index+ 2 - 8).getBackground().setFill(Color.RED);
 			}
 		}
-	}
+		if(!(index%8==6 || index%8==7)){
+		if (!(index + 2 + 8 > 63))
+			if(Square.all_squares.get(index+ 2 + 8).hasPiece()&& (this.getColor() != Square.all_squares.get(index+ 2 + 8).getPieceColor())){
+				Square.all_squares.get(index+ 2 + 8).getBackground().setFill(Color.GREEN);
+				
+			}
+			else if(!(Square.all_squares.get(index+ 2 + 8).hasPiece()&& !(this.getColor() != Square.all_squares.get(index+ 2 + 8).getPieceColor()))){
+			
+			Square.all_squares.get(index+ 2 + 8).getBackground().setFill(Color.RED);
+			}
+		}
+		}
+	
 
 	@Override
 	public void hideMove() {
