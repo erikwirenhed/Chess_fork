@@ -6,13 +6,36 @@ import pieces.Bishop;
 import pieces.King;
 import pieces.Knight;
 import pieces.Pawn;
+import pieces.Piece;
 import pieces.Queen;
 import pieces.Rook;
 
 public class ChessBoard extends Group {
 
-	
 	public boolean c = true;
+	public static boolean check = false;
+
+	public static int turn = 0;
+
+	static Square whiteKing;
+	static Square blackKing;
+	static Piece checkPiece;
+
+	public static void nextTurn() {
+		turn++;
+	}
+
+	public static Color getTurn() {
+		if (turn % 2 == 0) {
+			return Color.WHITE;
+		} else {
+			return Color.BLACK;
+		}
+	}
+
+	public static boolean isCheck() {
+		return check;
+	}
 
 	public ChessBoard() {
 
@@ -29,54 +52,56 @@ public class ChessBoard extends Group {
 				s.setTranslateY(row * Square.SIZE);
 				this.getChildren().add(s);
 
-					if (row == 0) {
-					if (col == 0 || col==7) {
+				if (row == 0) {
+					if (col == 0 || col == 7) {
 						s.addPiece(new Rook(Color.BLACK));
-						
-						//s.addPiece(new King(Color.BLACK));  // Obs ta bort efter testning!
+
+						// s.addPiece(new King(Color.BLACK)); // Obs ta bort
+						// efter testning!
 					}
-					
-					else if (col == 1 || col==6) {
+
+					else if (col == 1 || col == 6) {
 						s.addPiece(new Knight(Color.BLACK));
 					}
-					
-					else if (col == 2 || col==5) {
+
+					else if (col == 2 || col == 5) {
 						s.addPiece(new Bishop(Color.BLACK));
 					}
-					
+
 					else if (col == 3) {
 						s.addPiece(new Queen(Color.BLACK));
 					}
-					
+
 					else if (col == 4) {
 						s.addPiece(new King(Color.BLACK));
+						blackKing = s;
 					}
-				
+
 				}
 
 				if (row == 7) {
 					if (col == 0 || col == 7) {
-					s.addPiece(new Rook(Color.WHITE));
+						s.addPiece(new Rook(Color.WHITE));
 
 					}
-					
-					else if (col == 1 || col==6) {
+
+					else if (col == 1 || col == 6) {
 						s.addPiece(new Knight(Color.WHITE));
 					}
-					
-					else if (col == 2 || col==5) {
+
+					else if (col == 2 || col == 5) {
 						s.addPiece(new Bishop(Color.WHITE));
 					}
-					
+
 					else if (col == 3) {
 						s.addPiece(new Queen(Color.WHITE));
 					}
-					
+
 					else if (col == 4) {
 						s.addPiece(new King(Color.WHITE));
+						whiteKing = s;
 					}
-					
-					
+
 				}
 				if (row == 1) {
 					s.addPiece(new Pawn(Color.BLACK));
@@ -84,14 +109,29 @@ public class ChessBoard extends Group {
 				if (row == 6) {
 					s.addPiece(new Pawn(Color.WHITE));
 				}
-			
-		/*	if(row == 4 && col == 4){
-					s.addPiece(new Knight(Color.WHITE));   // Obs ta bort efter testning!
-				}		*/
-			} 
 
-		}	
+				/*
+				 * if(row == 4 && col == 4){ s.addPiece(new
+				 * Knight(Color.WHITE)); // Obs ta bort efter testning! }
+				 */
+			}
+
+		}
 	}
 
+	public static void setCheckPiece(Piece p){
+		checkPiece = p;
+	}
 	
+	public static void check() {
+		check = true;
+		if (getTurn() == Color.WHITE) {
+			whiteKing.getBackground().setFill(Color.YELLOW);
+		} else {
+			blackKing.getBackground().setFill(Color.YELLOW);
+
+		}
+
+	}
+
 }
