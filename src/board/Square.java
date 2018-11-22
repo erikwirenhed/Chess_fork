@@ -12,6 +12,7 @@ import pieces.Piece;
 public class Square extends Group {
 
 	public static final double SIZE = 80;
+	private static Piece placeholder;
 	private Rectangle bg;
 	private Color originalColor;
 	private Piece piece;
@@ -71,6 +72,7 @@ public class Square extends Group {
 				
 				if (ChessBoard.isCheck()) {
 					if(this.piece != ChessBoard.checkPiece){
+						
 						resetBoardColor();
 						return;
 					}
@@ -99,11 +101,16 @@ public class Square extends Group {
 				if (bg.getFill() == Color.RED) {
 
 					if (ChessBoard.isCheck()) {
+						if(Piece.getActive() instanceof King){
+							 placeholder = new King(ChessBoard.getTurn());
+						}
+						else{
+							 placeholder = new Pawn(ChessBoard.getTurn());
+						}
+					
 						
-						
-						Piece placeholder = new Pawn(ChessBoard.getTurn());
 						addPiece(placeholder);
-						ChessBoard.check = false;
+						ChessBoard.unCheck();
 						ChessBoard.checkPiece.showMove(); // Sätter CHECK = true
 															// om det blir
 															// schack
@@ -125,7 +132,7 @@ public class Square extends Group {
 							else if (ChessBoard.getTurn()==Color.WHITE){
 								ChessBoard.whiteKing=this;
 							}
-									
+								
 
 						}
 						Piece.removeActive();
