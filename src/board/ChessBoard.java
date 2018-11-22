@@ -17,9 +17,9 @@ public class ChessBoard extends Group {
 
 	public static int turn = 0;
 
-	static Square whiteKing;
-	static Square blackKing;
-	static Piece checkPiece;
+	public static Square whiteKing;
+	public static Square blackKing;
+	public static Piece checkPiece;
 
 	public static void nextTurn() {
 		turn++;
@@ -121,6 +121,11 @@ public class ChessBoard extends Group {
 
 	public static void setCheckPiece(Piece p){
 		checkPiece = p;
+		
+	}
+	
+	public static void unCheck(){
+		check = false;
 	}
 	
 	public static void check() {

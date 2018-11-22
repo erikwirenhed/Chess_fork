@@ -1,5 +1,6 @@
 package pieces;
 
+import board.ChessBoard;
 import board.Square;
 import javafx.scene.paint.Color;
 
@@ -26,6 +27,9 @@ public class Queen extends Piece implements moveable {
 				break;
 			}
 			else if(Square.all_squares.get(index).hasPiece()&& (this.getColor() != Square.all_squares.get(index).getPieceColor())){
+				if (Square.all_squares.get(index).hasKing()) {
+					ChessBoard.check();
+				}
 				Square.all_squares.get(index).getBackground().setFill(Color.GREEN);
 				break;
 			}
@@ -43,6 +47,9 @@ public class Queen extends Piece implements moveable {
 				break;
 			}
 			else if(Square.all_squares.get(index).hasPiece()&& (this.getColor() != Square.all_squares.get(index).getPieceColor())){
+				if (Square.all_squares.get(index).hasKing()) {
+					ChessBoard.check();
+				}
 				Square.all_squares.get(index).getBackground().setFill(Color.GREEN);
 				break;
 			}
@@ -61,6 +68,9 @@ public class Queen extends Piece implements moveable {
 				break;
 			}
 			else if(Square.all_squares.get(index).hasPiece()&& (this.getColor() != Square.all_squares.get(index).getPieceColor())){
+				if (Square.all_squares.get(index).hasKing()) {
+					ChessBoard.check();
+				}
 				Square.all_squares.get(index).getBackground().setFill(Color.GREEN);
 				break;
 			}
@@ -79,6 +89,9 @@ public class Queen extends Piece implements moveable {
 				break;
 			}
 			else if(Square.all_squares.get(index).hasPiece()&& (this.getColor() != Square.all_squares.get(index).getPieceColor())){
+				if (Square.all_squares.get(index).hasKing()) {
+					ChessBoard.check();
+				}
 				Square.all_squares.get(index).getBackground().setFill(Color.GREEN);
 				break;
 			}
@@ -96,6 +109,9 @@ public class Queen extends Piece implements moveable {
 				break;
 			}
 			else if(Square.all_squares.get(index).hasPiece()&& (this.getColor() != Square.all_squares.get(index).getPieceColor())){
+				if (Square.all_squares.get(index).hasKing()) {
+					ChessBoard.check();
+				}
 				Square.all_squares.get(index).getBackground().setFill(Color.GREEN);
 				break;
 			}
@@ -110,6 +126,9 @@ public class Queen extends Piece implements moveable {
 				break;
 			}
 			else if(Square.all_squares.get(index).hasPiece()&& (this.getColor() != Square.all_squares.get(index).getPieceColor())){
+				if (Square.all_squares.get(index).hasKing()) {
+					ChessBoard.check();
+				}
 				Square.all_squares.get(index).getBackground().setFill(Color.GREEN);
 				break;
 			}
@@ -128,6 +147,9 @@ public class Queen extends Piece implements moveable {
 				break;
 			}
 			else if(Square.all_squares.get(index).hasPiece()&& (this.getColor() != Square.all_squares.get(index).getPieceColor())){
+				if (Square.all_squares.get(index).hasKing()) {
+					ChessBoard.check();
+				}
 				Square.all_squares.get(index).getBackground().setFill(Color.GREEN);
 				break;
 			}
@@ -144,6 +166,9 @@ public class Queen extends Piece implements moveable {
 				break;
 			}
 			else if(Square.all_squares.get(index).hasPiece()&& (this.getColor() != Square.all_squares.get(index).getPieceColor())){
+				if (Square.all_squares.get(index).hasKing()) {
+					ChessBoard.check();
+				}
 				Square.all_squares.get(index).getBackground().setFill(Color.GREEN);
 				break;
 			}

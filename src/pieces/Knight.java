@@ -1,5 +1,6 @@
 package pieces;
 
+import board.ChessBoard;
 import board.Square;
 import javafx.scene.paint.Color;
 
@@ -27,7 +28,10 @@ public class Knight extends Piece implements moveable {
 		if (!(index - 16 + 1 < 0))
 			
 			 if(Square.all_squares.get(index- 16 + 1).hasPiece()&& (this.getColor() != Square.all_squares.get(index- 16 + 1).getPieceColor())){
-				Square.all_squares.get(index- 16 + 1).getBackground().setFill(Color.GREEN);
+				 if (Square.all_squares.get(index-16+1).hasKing()) {
+						ChessBoard.check();
+					}
+				 Square.all_squares.get(index- 16 + 1).getBackground().setFill(Color.GREEN);
 				
 			}
 			 else if(!(Square.all_squares.get(index- 16 + 1).hasPiece()&& !(this.getColor() != Square.all_squares.get(index- 16 + 1).getPieceColor()))){
@@ -39,6 +43,9 @@ public class Knight extends Piece implements moveable {
 		if(!(index%8==0)){
 		if (!(index - 16 - 1 < 0))
 			if(Square.all_squares.get(index- 16 - 1).hasPiece()&& (this.getColor() != Square.all_squares.get(index- 16 - 1).getPieceColor())){
+				if (Square.all_squares.get(index-16-1).hasKing()) {
+					ChessBoard.check();
+				}
 				Square.all_squares.get(index- 16 - 1).getBackground().setFill(Color.GREEN);
 				
 			}
@@ -52,6 +59,9 @@ public class Knight extends Piece implements moveable {
 	if(!(index%8==7)){
 		if (!(index + 16 + 1 > 63))
 			if(Square.all_squares.get(index+ 16 + 1).hasPiece()&& (this.getColor() != Square.all_squares.get(index+ 16 + 1).getPieceColor())){
+				if (Square.all_squares.get(index+16+1).hasKing()) {
+					ChessBoard.check();
+				}
 				Square.all_squares.get(index+16 + 1).getBackground().setFill(Color.GREEN);
 				
 			}
@@ -64,6 +74,9 @@ public class Knight extends Piece implements moveable {
 	if(!(index%8==0)){
 		if (!(index + 16 - 1 > 63))
 			if(Square.all_squares.get(index+ 16 - 1).hasPiece()&& (this.getColor() != Square.all_squares.get(index+ 16 - 1).getPieceColor())){
+				if (Square.all_squares.get(index+16-1).hasKing()) {
+					ChessBoard.check();
+				}
 				Square.all_squares.get(index+ 16 - 1).getBackground().setFill(Color.GREEN);
 				
 			}
@@ -78,6 +91,9 @@ public class Knight extends Piece implements moveable {
 		if(!(index%8==0 || index%8==1)){
 		if (!(index - 2 - 8 < 0))
 			if(Square.all_squares.get(index- 2 - 8).hasPiece()&& (this.getColor() != Square.all_squares.get(index- 2 - 8).getPieceColor())){
+				if (Square.all_squares.get(index-2-8).hasKing()) {
+					ChessBoard.check();
+				}
 				Square.all_squares.get(index- 2 - 8).getBackground().setFill(Color.GREEN);
 				
 			}
@@ -88,6 +104,9 @@ public class Knight extends Piece implements moveable {
 		
 		if (!(index - 2 + 8 > 63))
 			if(Square.all_squares.get(index - 2 + 8).hasPiece()&& (this.getColor() != Square.all_squares.get(index- 2 + 8).getPieceColor())){
+				if (Square.all_squares.get(index-2+8).hasKing()) {
+					ChessBoard.check();
+				}
 				Square.all_squares.get(index - 2 + 8).getBackground().setFill(Color.GREEN);
 				
 			}
@@ -101,6 +120,9 @@ public class Knight extends Piece implements moveable {
 		if(!(index%8==6 || index%8==7)){
 		if (!(index + 2 - 8 < 0))
 			if(Square.all_squares.get(index+ 2 - 8).hasPiece()&& (this.getColor() != Square.all_squares.get(index+ 2 - 8).getPieceColor())){
+				if (Square.all_squares.get(index+2-8).hasKing()) {
+					ChessBoard.check();
+				}
 				Square.all_squares.get(index+ 2 - 8).getBackground().setFill(Color.GREEN);
 				
 			}
@@ -112,6 +134,9 @@ public class Knight extends Piece implements moveable {
 		if(!(index%8==6 || index%8==7)){
 		if (!(index + 2 + 8 > 63))
 			if(Square.all_squares.get(index+ 2 + 8).hasPiece()&& (this.getColor() != Square.all_squares.get(index+ 2 + 8).getPieceColor())){
+				if (Square.all_squares.get(index+2+8).hasKing()) {
+					ChessBoard.check();
+				}
 				Square.all_squares.get(index+ 2 + 8).getBackground().setFill(Color.GREEN);
 				
 			}

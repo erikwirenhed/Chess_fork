@@ -74,9 +74,10 @@ public class Square extends Group {
 						resetBoardColor();
 						return;
 					}
+					
 				}
-
 				
+				ChessBoard.unCheck();
 				removePiece(this.piece);
 				addPiece(Piece.getActive());
 				Piece.removeActive();
@@ -117,6 +118,16 @@ public class Square extends Group {
 
 					if (Piece.getActive() != null) {
 						addPiece(Piece.getActive());
+						if(Piece.getActive() instanceof King){
+							if(ChessBoard.getTurn()==Color.BLACK){
+								ChessBoard.blackKing=this;
+							}
+							else if (ChessBoard.getTurn()==Color.WHITE){
+								ChessBoard.whiteKing=this;
+							}
+									
+
+						}
 						Piece.removeActive();
 						Square.getActive().piece = null;
 						active.getBackground().setFill(active.originalColor);

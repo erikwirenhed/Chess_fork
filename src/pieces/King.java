@@ -1,16 +1,19 @@
 package pieces;
 
+
 import board.Square;
 import javafx.scene.paint.Color;
 
 public class King extends Piece implements moveable {
+	
+	
+	
 	public King(Color c) {
 		super(c);
 	}
 
 	@Override
 	public void move() {
-		// TODO Auto-generated method stub
 
 	}
 
@@ -18,7 +21,9 @@ public class King extends Piece implements moveable {
 	public void showMove() {
 		// TODO Auto-generated method stub
 		Square s = (Square) this.getParent();
+		
 		// diagonalt ner till vänster.
+	
 		for (int index = Square.all_squares.indexOf(s) + 7; index < Square.all_squares.size(); index += 65) {
 			if (index % 8 == 7) {
 				break;
@@ -161,6 +166,7 @@ public class King extends Piece implements moveable {
 		}   	
 	}
 
+	
 	@Override
 	public void hideMove() {
 		// TODO Auto-generated method stub
