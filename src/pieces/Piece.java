@@ -111,19 +111,20 @@ public abstract class Piece extends Group implements moveable {
 		}
 	}
 
-	private boolean movmentPath(int index) {
-		if (Square.all_squares.get(index).hasPiece()
-				&& !(this.getColor() != Square.all_squares.get(index).getPieceColor())) {
-			return false; // RETURN I METOD
-		} else if (Square.all_squares.get(index).hasPiece()
-				&& (this.getColor() != Square.all_squares.get(index).getPieceColor())) {
+	public boolean movmentPath(int index) {
+		if (Square.all_squares.get(index).hasPiece() && !(this.getColor() != Square.all_squares.get(index).getPieceColor())) {
+			return false; 
+			}
+		
+		else if (Square.all_squares.get(index).hasPiece() && (this.getColor() != Square.all_squares.get(index).getPieceColor())) {
 			if (Square.all_squares.get(index).hasKing()) {
 				ChessBoard.check();
 			}
 			Square.all_squares.get(index).getBackground().setFill(Color.GREEN);
 			return false;
-		} else {
-
+		}
+		
+		else {
 			Square.all_squares.get(index).getBackground().setFill(Color.RED);
 		}
 		return true;
