@@ -1,7 +1,5 @@
 package pieces;
 
-import board.ChessBoard;
-import board.Square;
 import javafx.scene.paint.Color;
 
 public class Queen extends Piece implements moveable {
@@ -17,166 +15,12 @@ public class Queen extends Piece implements moveable {
 
 	@Override
 	public void showMove() {
-		Square s = (Square) this.getParent();
-
-		for (int index = Square.all_squares.indexOf(s)+7; index < Square.all_squares.size(); index += 7) {
-			if (index % 8 == 7) {
-				break;
-			}
-			if(Square.all_squares.get(index).hasPiece()&& !(this.getColor() != Square.all_squares.get(index).getPieceColor())){
-				break;
-			}
-			else if(Square.all_squares.get(index).hasPiece()&& (this.getColor() != Square.all_squares.get(index).getPieceColor())){
-				if (Square.all_squares.get(index).hasKing()) {
-					ChessBoard.check();
-				}
-				Square.all_squares.get(index).getBackground().setFill(Color.GREEN);
-				break;
-			}
-			else{
-			
-			Square.all_squares.get(index).getBackground().setFill(Color.RED);
-			}		
-
-		}
-		for (int index = Square.all_squares.indexOf(s)+9; index < Square.all_squares.size(); index += 9) {
-			if (index % 8 == 0) {
-				break;
-			}
-			if(Square.all_squares.get(index).hasPiece()&& !(this.getColor() != Square.all_squares.get(index).getPieceColor())){
-				break;
-			}
-			else if(Square.all_squares.get(index).hasPiece()&& (this.getColor() != Square.all_squares.get(index).getPieceColor())){
-				if (Square.all_squares.get(index).hasKing()) {
-					ChessBoard.check();
-				}
-				Square.all_squares.get(index).getBackground().setFill(Color.GREEN);
-				break;
-			}
-			else{
-			
-			Square.all_squares.get(index).getBackground().setFill(Color.RED);
-			}
-
-
-		}
-		for (int index = Square.all_squares.indexOf(s)-7; index >= 0; index -= 7) {
-			if (index % 8 == 0) {
-				break;
-			}			
-			if(Square.all_squares.get(index).hasPiece()&& !(this.getColor() != Square.all_squares.get(index).getPieceColor())){
-				break;
-			}
-			else if(Square.all_squares.get(index).hasPiece()&& (this.getColor() != Square.all_squares.get(index).getPieceColor())){
-				if (Square.all_squares.get(index).hasKing()) {
-					ChessBoard.check();
-				}
-				Square.all_squares.get(index).getBackground().setFill(Color.GREEN);
-				break;
-			}
-			else{
-			
-			Square.all_squares.get(index).getBackground().setFill(Color.RED);
-			}
-
-
-		}
-		for (int index = Square.all_squares.indexOf(s)-9; index >= 0; index -= 9) {
-			if (index % 8 == 7) {
-				break;
-			}
-			if(Square.all_squares.get(index).hasPiece()&& !(this.getColor() != Square.all_squares.get(index).getPieceColor())){
-				break;
-			}
-			else if(Square.all_squares.get(index).hasPiece()&& (this.getColor() != Square.all_squares.get(index).getPieceColor())){
-				if (Square.all_squares.get(index).hasKing()) {
-					ChessBoard.check();
-				}
-				Square.all_squares.get(index).getBackground().setFill(Color.GREEN);
-				break;
-			}
-			else{
-			
-			Square.all_squares.get(index).getBackground().setFill(Color.RED);
-			}
-			
-
-		}
 		
-
-		for (int index = Square.all_squares.indexOf(s) + 8; index < Square.all_squares.size(); index += 8) {
-			if(Square.all_squares.get(index).hasPiece()&& !(this.getColor() != Square.all_squares.get(index).getPieceColor())){
-				break;
-			}
-			else if(Square.all_squares.get(index).hasPiece()&& (this.getColor() != Square.all_squares.get(index).getPieceColor())){
-				if (Square.all_squares.get(index).hasKing()) {
-					ChessBoard.check();
-				}
-				Square.all_squares.get(index).getBackground().setFill(Color.GREEN);
-				break;
-			}
-			else{
-			
-			Square.all_squares.get(index).getBackground().setFill(Color.RED);
-			}
-
-		}
-		for (int index = Square.all_squares.indexOf(s) - 8; index >= 0; index -= 8) {
-			if(Square.all_squares.get(index).hasPiece()&& !(this.getColor() != Square.all_squares.get(index).getPieceColor())){
-				break;
-			}
-			else if(Square.all_squares.get(index).hasPiece()&& (this.getColor() != Square.all_squares.get(index).getPieceColor())){
-				if (Square.all_squares.get(index).hasKing()) {
-					ChessBoard.check();
-				}
-				Square.all_squares.get(index).getBackground().setFill(Color.GREEN);
-				break;
-			}
-			else{
-			
-			Square.all_squares.get(index).getBackground().setFill(Color.RED);
-			}
-			
-		}
-
-		for (int index = Square.all_squares.indexOf(s) - 1; index >= 0; index -= 1) {
-			if (index % 8 == 7) {
-				break;
-			}
-			if(Square.all_squares.get(index).hasPiece()&& !(this.getColor() != Square.all_squares.get(index).getPieceColor())){
-				break;
-			}
-			else if(Square.all_squares.get(index).hasPiece()&& (this.getColor() != Square.all_squares.get(index).getPieceColor())){
-				if (Square.all_squares.get(index).hasKing()) {
-					ChessBoard.check();
-				}
-				Square.all_squares.get(index).getBackground().setFill(Color.GREEN);
-				break;
-			}
-			else{
-			
-			Square.all_squares.get(index).getBackground().setFill(Color.RED);
-			}
-		}
-		for (int index = Square.all_squares.indexOf(s) + 1; index < Square.all_squares.size(); index += 1) {
-			if (index % 8 == 0) {
-				break;
-			}
-			if(Square.all_squares.get(index).hasPiece()&& !(this.getColor() != Square.all_squares.get(index).getPieceColor())){
-				break;
-			}
-			else if(Square.all_squares.get(index).hasPiece()&& (this.getColor() != Square.all_squares.get(index).getPieceColor())){
-				if (Square.all_squares.get(index).hasKing()) {
-					ChessBoard.check();
-				}
-				Square.all_squares.get(index).getBackground().setFill(Color.GREEN);
-				break;
-			}
-			else{
-			
-			Square.all_squares.get(index).getBackground().setFill(Color.RED);
-			}
-		}
+		diagonalwalk(9);
+		diagonalwalk(7);
+		StraightWalk(1);
+		StraightWalk(8);
+		
 	}
 
 	@Override
