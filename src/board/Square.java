@@ -25,9 +25,31 @@ public class Square extends Group {
 		for (Square square : all_squares) {
 			square.getBackground().setFill(square.originalColor);
 		}
-		if(ChessBoard.isCheck()){
+		if (ChessBoard.isCheck()) {
 			ChessBoard.check();
 		}
+	}
+
+	public void uppdateKingsPosition() {
+		if (Piece.getActive() instanceof King) {
+			if (ChessBoard.getTurn() == Color.BLACK) {
+				ChessBoard.blackKing = this;
+			} else if (ChessBoard.getTurn() == Color.WHITE) {
+				ChessBoard.whiteKing = this;
+			}
+		}
+	}
+
+	public static void diactivateBoard() {
+		Piece.getActive().move();
+
+		Square.getActive().piece = null;
+		active.getBackground().setFill(active.originalColor);
+		Square.removeActive();
+
+		ChessBoard.nextTurn();
+		Piece.getActive().showMove();
+		Piece.removeActive();
 	}
 
 	public Square(Color c) {
@@ -40,63 +62,41 @@ public class Square extends Group {
 
 		this.setOnMouseClicked(event -> {
 
-			if (hasPiece() && (Piece.getActive() == null) && ChessBoard.getTurn() == this.piece.getColor()) {
+			if (hasPiece() && hasTurn()) {
 
-				resetBoardColor();
-
-				this.piece.showMove();
-
-				/*
-				 * if (!this.getBackground().getFill().equals(originalColor)) {
-				 * this.getBackground().setFill(originalColor); }
-				 */
-
-				/*
-				 * if(Piece.getActive() == this.piece){ Piece.removeActive(); //
-				 * active.getBackground().setFill(active.originalColor);
-				 * Square.removeActive(); resetBoardColor(); }
-				 */
-
-				this.getBackground().setFill(Color.RED);
-				piece.makeActive();
-
-				this.makeActive();
-
-			} else if (Piece.getActive() == this.piece) {
-				Piece.removeActive();
-				// active.getBackground().setFill(active.originalColor);
-				Square.removeActive();
-				resetBoardColor();
-			} else if (hasPiece() && Piece.getActive() != null && bg.getFill() == Color.GREEN) {
-
-				
-				if (ChessBoard.isCheck()) {
-					if(this.piece != ChessBoard.checkPiece){
-						
-						resetBoardColor();
-						return;
-					}
-					
+				if (hasActive()) {
+					Piece.removeActive();
+					Square.removeActive();
+					resetBoardColor();
+					return; // UNMARK
 				}
 				
+				resetBoardColor();
+
+				this.piece.showMove(); // SHOW MOVE
+				this.getBackground().setFill(Color.ROYALBLUE);
+				piece.makeActive();
+				this.makeActive();
+
+			}
+
+			else if (hasEnemy()) {
+
+				if (ChessBoard.isCheck()) {
+					if (!isCheckingPiece()) {
+						resetBoardColor();
+						return; // INVALID MOVE
+					}
+
+				}
+
 				ChessBoard.unCheck();
 				removePiece(this.piece);
 				addPiece(Piece.getActive());
-				if(Piece.getActive() instanceof King){
-					if(ChessBoard.getTurn()==Color.BLACK){
-						ChessBoard.blackKing=this;
-					}
-					else if (ChessBoard.getTurn()==Color.WHITE){
-						ChessBoard.whiteKing=this;
-					}
-				}
-				Piece.removeActive();
-				Square.getActive().piece = null;
-				active.getBackground().setFill(active.originalColor);
-				Square.removeActive();
-				this.piece.move();
-				ChessBoard.nextTurn();
-				this.piece.showMove();
+
+				uppdateKingsPosition();
+				diactivateBoard();
+
 				if (ChessBoard.isCheck()) {
 					resetBoardColor();
 					ChessBoard.setCheckPiece(this.piece);
@@ -105,75 +105,78 @@ public class Square extends Group {
 					resetBoardColor();
 				}
 
-			} else {
-				if (bg.getFill() == Color.RED) {
+			}
+
+			else if (hasMove()) {
+
+				if (ChessBoard.isCheck()) {
+
+					if (Piece.getActive() instanceof King) {
+						placeholder = new King(ChessBoard.getTurn());
+					} else {
+						placeholder = new Pawn(ChessBoard.getTurn());
+					}
+
+					addPiece(placeholder);
+					ChessBoard.unCheck();
+					ChessBoard.checkPiece.showMove();
+					removePiece(placeholder); // Sätter CHECK = true
+					// om det blir
+					// schack
 
 					if (ChessBoard.isCheck()) {
-						
-						if(Piece.getActive() instanceof King){
-							 placeholder = new King(ChessBoard.getTurn());
-						}
-						else{
-							 placeholder = new Pawn(ChessBoard.getTurn());
-						}
-					
-						
-						addPiece(placeholder);
-						ChessBoard.unCheck();
-						ChessBoard.checkPiece.showMove();
-						removePiece(placeholder);			// Sätter CHECK = true
-														// om det blir
-															// schack
-						
 
-						if (ChessBoard.isCheck()) {
-							
-							resetBoardColor();
-							return;
-						}
-
+						resetBoardColor();
+						return;
 					}
 
-					if (Piece.getActive() != null) {
-						addPiece(Piece.getActive());
-						if(Piece.getActive() instanceof King){
-							if(ChessBoard.getTurn()==Color.BLACK){
-								ChessBoard.blackKing=this;
-							}
-							else if (ChessBoard.getTurn()==Color.WHITE){
-								ChessBoard.whiteKing=this;
-							}
-								
+				}
 
-						}
-						Piece.removeActive();
-						Square.getActive().piece = null;
-						active.getBackground().setFill(active.originalColor);
-						Square.removeActive();
-						this.piece.move();
-						ChessBoard.nextTurn();
+				if (Piece.getActive() != null) {
+					addPiece(Piece.getActive());
 
-						this.piece.showMove();
-						if (ChessBoard.isCheck()) {
-							resetBoardColor();
-							ChessBoard.setCheckPiece(this.piece);
-							ChessBoard.check();
-						} else {
-							resetBoardColor();
-						}
+					uppdateKingsPosition();
+					diactivateBoard();
 
+					if (ChessBoard.isCheck()) {
+						resetBoardColor();
+						ChessBoard.setCheckPiece(this.piece);
+						ChessBoard.check();
+					} else {
+						resetBoardColor();
 					}
-				}
 
-				else { // Tom ruta => Avmarkera allt
-					Piece.removeActive();
-					Square.removeActive();
-					resetBoardColor();
 				}
-
 			}
+
+			else { // Tom ruta => Avmarkera allt
+				Piece.removeActive();
+				Square.removeActive();
+				resetBoardColor();
+			}
+
 		});
 
+	}
+
+	private boolean hasActive() {
+		return Piece.getActive() == this.piece;
+	}
+
+	private boolean isCheckingPiece() {
+		return this.piece == ChessBoard.checkPiece;
+	}
+
+	private boolean hasMove() {
+		return bg.getFill() == Color.DARKRED;
+	}
+
+	private boolean hasEnemy() {
+		return bg.getFill() == Color.DARKGREEN;
+	}
+
+	private boolean hasTurn() {
+		return ChessBoard.getTurn() == this.piece.getColor();
 	}
 
 	public void addPiece(Piece p) {
@@ -204,10 +207,6 @@ public class Square extends Group {
 
 	public static void removeActive() {
 		Square.active = null;
-
-	}
-
-	public void getColor() {
 
 	}
 

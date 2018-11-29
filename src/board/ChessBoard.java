@@ -110,12 +110,11 @@ public class ChessBoard extends Group {
 					s.addPiece(new Pawn(Color.WHITE));
 				}
 
-				/*
-				 * if(row == 4 && col == 4){ s.addPiece(new
-				 * Knight(Color.WHITE)); // Obs ta bort efter testning! }
-				 */
+				/*if(row == 4 && col == 4){ s.addPiece(new
+				Bishop(Color.WHITE)); // Obs ta bort efter testning! }*/
+				 
 			}
-
+			
 		}
 	}
 

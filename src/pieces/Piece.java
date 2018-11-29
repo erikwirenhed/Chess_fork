@@ -65,13 +65,13 @@ public abstract class Piece extends Group implements moveable {
 			}
 
 		}
-
+		c=0;
 		for (int index = Square.all_squares.indexOf(s) - x; index >= 0; index -= x) {
 
-			if (x == 9) {
+			if (x == 9 ) {
 				c = 7;
 			}
-
+			
 			if (index % 8 == c) {
 				break;
 			}
@@ -116,16 +116,16 @@ public abstract class Piece extends Group implements moveable {
 			return false; 
 			}
 		
-		else if (Square.all_squares.get(index).hasPiece() && (this.getColor() != Square.all_squares.get(index).getPieceColor())) {
+		else if (Square.all_squares.get(index).hasPiece() && (this.getColor() != Square.all_squares.get(index).getPieceColor()) ) {
 			if (Square.all_squares.get(index).hasKing()) {
 				ChessBoard.check();
 			}
-			Square.all_squares.get(index).getBackground().setFill(Color.GREEN);
+			Square.all_squares.get(index).getBackground().setFill(Color.DARKGREEN);
 			return false;
 		}
 		
 		else {
-			Square.all_squares.get(index).getBackground().setFill(Color.RED);
+			Square.all_squares.get(index).getBackground().setFill(Color.DARKRED);
 		}
 		return true;
 

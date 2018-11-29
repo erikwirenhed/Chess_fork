@@ -33,22 +33,22 @@ public class Pawn extends Piece implements moveable {
 							if (Square.all_squares.get(index-1).hasKing()) {
 								ChessBoard.check();
 							}
-							Square.all_squares.get(index - 1).getBackground().setFill(Color.GREEN);
+							Square.all_squares.get(index - 1).getBackground().setFill(Color.DARKGREEN);
 						}
 						if (Square.all_squares.get(index + 1).hasPiece() && index%8 != 7 && this.getColor() != Square.all_squares.get(index + 1).getPieceColor()) {
 							if (Square.all_squares.get(index+1).hasKing()) {
 								ChessBoard.check();
 							}
-							Square.all_squares.get(index + 1).getBackground().setFill(Color.GREEN);
+							Square.all_squares.get(index + 1).getBackground().setFill(Color.DARKGREEN);
 						}
 						if (!(Square.all_squares.get(index1).hasPiece())
 								&& !(Square.all_squares.get(index).hasPiece())) {
-							Square.all_squares.get(index1).getBackground().setFill(Color.RED);
-							Square.all_squares.get(index).getBackground().setFill(Color.RED);
+							Square.all_squares.get(index1).getBackground().setFill(Color.DARKRED);
+							Square.all_squares.get(index).getBackground().setFill(Color.DARKRED);
 						}
 						 else if((Square.all_squares.get(index1).hasPiece())){
 							  Square.all_squares.get(index).getBackground().setFill
-							  (Color.RED); }
+							  (Color.DARKRED); }
 
 					}
 				}
@@ -62,23 +62,23 @@ public class Pawn extends Piece implements moveable {
 							if (Square.all_squares.get(index-1).hasKing()) {
 								ChessBoard.check();
 							}
-							Square.all_squares.get(index - 1).getBackground().setFill(Color.GREEN);
+							Square.all_squares.get(index - 1).getBackground().setFill(Color.DARKGREEN);
 						}
 						if (Square.all_squares.get(index + 1).hasPiece() && index%8 != 7 && this.getColor() != Square.all_squares.get(index + 1).getPieceColor()) {
 							if (Square.all_squares.get(index+1).hasKing()) {
 								ChessBoard.check();
 							}
-							Square.all_squares.get(index + 1).getBackground().setFill(Color.GREEN);
+							Square.all_squares.get(index + 1).getBackground().setFill(Color.DARKGREEN);
 						}
 						if (!(Square.all_squares.get(index1).hasPiece())
 								&& !(Square.all_squares.get(index).hasPiece())) {
-							Square.all_squares.get(index1).getBackground().setFill(Color.RED);
-							Square.all_squares.get(index).getBackground().setFill(Color.RED);
+							Square.all_squares.get(index1).getBackground().setFill(Color.DARKRED);
+							Square.all_squares.get(index).getBackground().setFill(Color.DARKRED);
 						}
 						
 						  else if((Square.all_squares.get(index1).hasPiece())){
 						  Square.all_squares.get(index).getBackground().setFill
-						  (Color.RED); }
+						  (Color.DARKRED); }
 						 
 
 					}
@@ -96,17 +96,17 @@ public class Pawn extends Piece implements moveable {
 						if (Square.all_squares.get(index-1).hasKing()) {
 							ChessBoard.check();
 						}
-						Square.all_squares.get(index - 1).getBackground().setFill(Color.GREEN);
+						Square.all_squares.get(index - 1).getBackground().setFill(Color.DARKGREEN);
 					}
 					if (Square.all_squares.get(index + 1).hasPiece() && index%8 != 7 
 							&& this.getColor() != Square.all_squares.get(index + 1).getPieceColor()) {
 						if (Square.all_squares.get(index+1).hasKing()) {
 							ChessBoard.check();
 						}
-						Square.all_squares.get(index + 1).getBackground().setFill(Color.GREEN);
+						Square.all_squares.get(index + 1).getBackground().setFill(Color.DARKGREEN);
 					}
 					if (!(Square.all_squares.get(index).hasPiece())) {
-						Square.all_squares.get(index).getBackground().setFill(Color.RED);
+						Square.all_squares.get(index).getBackground().setFill(Color.DARKRED);
 					}
 				}
 			}
@@ -119,18 +119,18 @@ public class Pawn extends Piece implements moveable {
 						if (Square.all_squares.get(index-1).hasKing()) {
 							ChessBoard.check();
 						}
-						Square.all_squares.get(index - 1).getBackground().setFill(Color.GREEN);
+						Square.all_squares.get(index - 1).getBackground().setFill(Color.DARKGREEN);
 					}
 					if (Square.all_squares.get(index + 1).hasPiece() && index%8 != 7 
 							&& this.getColor() != Square.all_squares.get(index + 1).getPieceColor()) {
 						if (Square.all_squares.get(index+1).hasKing()) {
 							ChessBoard.check();
 						}
-						Square.all_squares.get(index + 1).getBackground().setFill(Color.GREEN);
+						Square.all_squares.get(index + 1).getBackground().setFill(Color.DARKGREEN);
 					}
 
 					if (!(Square.all_squares.get(index).hasPiece())) {
-						Square.all_squares.get(index).getBackground().setFill(Color.RED);
+						Square.all_squares.get(index).getBackground().setFill(Color.DARKRED);
 					}
 				}
 			}
@@ -144,8 +144,5 @@ public class Pawn extends Piece implements moveable {
 
 	}
 
-	/*
-	 * @Override public int getColorOfPiece() { // TODO Auto-generated method
-	 * stub return color; }
-	 */
+	
 }

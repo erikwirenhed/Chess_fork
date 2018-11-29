@@ -1,6 +1,5 @@
 package pieces;
 
-import board.ChessBoard;
 import board.Square;
 import javafx.scene.paint.Color;
 
